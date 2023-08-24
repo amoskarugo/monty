@@ -1,5 +1,5 @@
 #include "monty.h"
-
+int value;
 /**
  *get_function - function to execute opcode
  *@stack: pointer to stack
