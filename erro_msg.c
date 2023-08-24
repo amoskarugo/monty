@@ -18,7 +18,7 @@ void usage_err(void)
  */
 void open_err(char *argv[])
 {
-	fprintf(stderr, "Error: Cant't open file: %s\n", argv[1]);
+	fprintf(stderr, "Error: Cant't open file %s\n", argv[1]);
 	exit(EXIT_FAILURE);
 }
 
