@@ -22,7 +22,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 		while (temp != NULL)
 		{
 			if ((temp)->n <= 0 || (temp)->n > 127)
-				break;
+				exit(EXIT_FAILURE);
 
 			character = (char)temp->n;
 			temp = temp->next;
