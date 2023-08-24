@@ -46,7 +46,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if ((*stack)->next == NULL)
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 
 	temp = (*stack);
 	rot_val = (*stack)->n;
