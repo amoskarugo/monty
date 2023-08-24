@@ -31,3 +31,34 @@ void pstr(stack_t **stack, unsigned int line_number)
 		printf("\n");
 	}
 }
+
+
+/**
+ *rotl - rotates elements in a stack to the left
+ *@stack: pointer to stack
+ *@line_number: line number of the instruction
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	int rot_val;
+	stack_t *temp;
+
+	(void)line_number;
+
+	temp = (*stack);
+	rot_val = (*stack)->n;
+	while ((*stack) != NULL)
+	{
+		(*stack)->n = (*stack)->next->n;
+		if ((*stack)->next->next == NULL)
+		{
+			(*stack)->next->n = rot_val;
+			(*stack) = temp;
+			break;
+		}
+
+		(*stack) = (*stack)->next;
+
+	}
+}
+
