@@ -62,6 +62,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number);
 void push(stack_t **stack, unsigned int line_number);
 int isdigit_(const char *s);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void free_mem(stack_t **stack);
 #endif

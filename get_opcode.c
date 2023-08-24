@@ -17,6 +17,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 				{"push", &push},
 				{"pop", &pop},
 				{"pall", &pall},
+				{"pint", &pint},
 				{NULL, NULL}};
 
 	while (insts[i].opcode)

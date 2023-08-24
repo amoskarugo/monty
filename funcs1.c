@@ -67,3 +67,20 @@ void pop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 }
+
+
+/**
+ *pint - prints the value at the top of the stack
+ *@line_number: instruction line number on the monty file
+ *@stack: pointer to stack
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+		printf("%d\n", (*stack)->n);
+}
