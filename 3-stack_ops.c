@@ -119,3 +119,30 @@ void mod(stack_t **stack, unsigned int line_number)
 	}
 
 }
+
+/**
+ *pchar - prints char give the ascii value
+ *@stack: pointer to stack
+ *@line_number: line number on file
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	char character;
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		character = (char)(*stack)->n;
+		printf("%c\n", character);
+	}
+}
+
