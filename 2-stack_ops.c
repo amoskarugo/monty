@@ -65,7 +65,7 @@ void swap(stack_t **stack, unsigned int line_number)
 }
 
 /**
- *add - swap the top two elements of a stack
+ *add - adds the top two elements of a stack
  *@stack: pointer to stack
  *@line_number: line number of the instruction
  */
