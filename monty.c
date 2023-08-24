@@ -16,5 +16,5 @@ int main(int ac, char *argv[])
 	else
 		execute(argv);
 
-	return (0);
+	exit(EXIT_SUCCESS);
 }
