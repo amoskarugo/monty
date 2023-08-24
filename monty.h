@@ -21,6 +21,7 @@ typedef struct byte_s
 } instructions;
 
 extern instructions cmd;
+
 extern int value;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,8 +54,8 @@ typedef struct instruction_s
 } instruction_t;
 
 void usage_err(void);
-void _invalid(int line_num, FILE *fd, char *opcode, stack_t *stack);
-void push_err(int line_number, FILE *fd, char *line, stack_t *stack);
+void _invalid(int line, FILE *fd, char *l, char *opcode, stack_t **stack);
+void push_err(int line_number, FILE *fd, char *line, stack_t **stack);
 void open_err(char *argv[]);
 int execute(char *argv[]);
 int get_function(stack_t **stack, char *cmd, char *data, int line_number);
@@ -62,4 +63,5 @@ void push(stack_t **stack, unsigned int line_number);
 int isdigit_(const char *s);
 void pall(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void free_mem(stack_t **stack);
 #endif

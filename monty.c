@@ -1,5 +1,6 @@
 #include "monty.h"
-
+void global_val(void);
+int value;
 /**
  *main - program Entry point.
  *@ac:  arguments count.

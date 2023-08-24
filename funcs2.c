@@ -21,3 +21,22 @@ int isdigit_(const char *s)
 	}
 	return (1);
 }
+
+/**
+ *free_mem - free a linked list
+ *@stack: pointer to stack
+ *
+ *
+ */
+void free_mem(stack_t **stack)
+{
+	stack_t *current = *stack;
+
+	while (current != NULL)
+	{
+		stack_t *temp = current;
+
+		current = current->next;
+		free(temp);
+	}
+}

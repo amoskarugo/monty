@@ -9,7 +9,6 @@
 int execute(char *argv[])
 {
 	int line_num = 1, j = 0;
-	FILE *fd = fopen(argv[1], "r");
 	char *token = NULL, *_int = NULL, delim[] = " \n\t\r";
 	size_t n;
 	stack_t *stack = NULL;
@@ -17,7 +16,7 @@ int execute(char *argv[])
 
 	cmd.fd = fopen(argv[1], "r");
 
-	if (fd != NULL)
+	if (cmd.fd != NULL)
 	{
 		while (getline(&cmd.line, &n, cmd.fd) != -1)
 		{
@@ -32,12 +31,13 @@ int execute(char *argv[])
 
 			j = get_function(&stack, token, _int, line_num);
 			if (j == -1)
-				push_err(line_num, fd, cmd.line, stack);
+				push_err(line_num, cmd.fd, cmd.line, &stack);
 			else if (j == 1)
-				_invalid(line_num, fd, token, stack);
+				_invalid(line_num, cmd.fd, cmd.line, token, &stack);
 			line_num++;
 		}
 		free(cmd.line);
+		free_mem(&stack);
 		fclose(cmd.fd);
 
 
