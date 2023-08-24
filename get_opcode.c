@@ -36,5 +36,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 		}
 		i++;
 	}
+	if (!insts[i].opcode)
+		return (-1);
 	return (0);
 }
