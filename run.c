@@ -8,7 +8,7 @@
  */
 int execute(char *argv[])
 {
-	int line_num = 1, j = 0;
+	int line_num = 0, j = 0;
 	char *token = NULL, *_int = NULL, delim[] = " \n\t\r";
 	size_t n;
 	stack_t *stack = NULL;
@@ -20,6 +20,7 @@ int execute(char *argv[])
 	{
 		while (getline(&cmd.line, &n, cmd.fd) != -1)
 		{
+			line_num++;
 			token = strtok(cmd.line, delim);
 			if (token == NULL)
 			{
@@ -34,7 +35,6 @@ int execute(char *argv[])
 				push_err(line_num, cmd.fd, cmd.line, &stack);
 			else if (j == 1)
 				_invalid(line_num, cmd.fd, cmd.line, token, &stack);
-			line_num++;
 		}
 		free(cmd.line);
 		free_mem(&stack);
