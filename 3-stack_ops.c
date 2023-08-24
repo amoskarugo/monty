@@ -58,3 +58,31 @@ void _div(stack_t **stack, unsigned int line_number)
 	}
 
 }
+
+
+/**
+ *mul - subtracts the top element from the second top element in the stack
+ *@stack: pointer to stack
+ *@line_number: line number of the instruction
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	int prod;
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr,  "L%u: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		prod = (*stack)->next->n * (*stack)->n;
+		temp = (*stack)->next;
+		temp->n = prod;
+		free(*stack);
+		(*stack) = temp;
+
+	}
+
+}
