@@ -9,24 +9,29 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *newnode;
 
 	(void)line_number;
 
-	new = (stack_t *)malloc(sizeof(stack_t));
+	newnode = (stack_t *)malloc(sizeof(stack_t));
+	if (newnode == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
-	new->n = value;
+	newnode->n = value;
 	if (*stack == NULL)
 	{
-		new->prev = NULL;
-		new->next = NULL;
-		(*stack) = new;
+		newnode->prev = NULL;
+		newnode->next = NULL;
+		(*stack) = newnode;
 	}
 	else
 	{
-		(*stack)->prev = new;
-		new->next = *stack;
-		(*stack) = new;
+		(*stack)->prev = newnode;
+		newnode->next = *stack;
+		(*stack) = newnode;
 	}
 }
 
