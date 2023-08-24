@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-
+#include <stdbool.h>
 /**
  *struct byte_s - file descriptor and its contents
  *@fd: file descriptor

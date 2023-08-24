@@ -11,7 +11,7 @@
 int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 {
 	int i = 0;
-
+	bool unknown = true;
 
 	instruction_t insts[] = {
 				{"push", &push},
@@ -23,6 +23,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 	{
 		if ((strcmp(cmd, insts[i].opcode)) == 0)
 		{
+			unknown = false;
 			if ((strcmp(cmd, "push")) == 0)
 			{
 				if (isdigit_(data) == 1)
@@ -36,7 +37,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 		}
 		i++;
 	}
-	if (!insts[i].opcode)
-		return (-1);
+	if (unknown)
+		return (1);
 	return (0);
 }
