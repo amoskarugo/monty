@@ -86,3 +86,36 @@ void mul(stack_t **stack, unsigned int line_number)
 	}
 
 }
+
+
+/**
+ *mod - modulous the top element by the second top element in the stack
+ *@stack: pointer to stack
+ *@line_number: line number of the instruction
+ */
+void mod(stack_t **stack, unsigned int line_number)
+{
+	int _mod;
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr,  "L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		_mod = (*stack)->next->n % (*stack)->n;
+		temp = (*stack)->next;
+		temp->n = _mod;
+		free(*stack);
+		(*stack) = temp;
+
+	}
+
+}
