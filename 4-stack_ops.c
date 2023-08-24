@@ -15,14 +15,14 @@ void pstr(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		printf("\n");
-		exit(EXIT_FAILURE);
+		/*exit(EXIT_FAILURE);*/
 	}
 	else
 	{
 		while (temp != NULL)
 		{
 			if ((temp)->n <= 0 || (temp)->n > 127)
-				exit(EXIT_FAILURE);
+				break;
 
 			character = (char)temp->n;
 			temp = temp->next;
