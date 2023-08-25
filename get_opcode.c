@@ -14,9 +14,7 @@ int get_function(stack_t **stack, char *cmd, char *data, int line_number)
 	bool unknown = true;
 
 	instruction_t insts[] = {
-				{"push", &push},
-				{"pop", &pop},
-				{"pall", &pall},
+				{"push", &push}, {"pop", &pop}, {"pall", &pall},
 				{"pint", &pint},
 				{"swap", &swap},
 				{"add", &add},
